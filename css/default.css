@@ -1,35 +1,20 @@
 :root {
-  --page-color: rgba(30, 30, 30, 1);
-
-  --text-color: rgba(0, 0, 0, 0.66);
-
-  --border-color: rgba(255, 255, 255, 0.33);
-  --background-color: rgba(255, 255, 255, 0.25);
-  --background-darken: rgba(0, 0, 0, 0.05);
-
-  --heading-background-color: rgba(255, 255, 255, 0.95);
-
-  --link-color: rgba(51, 140, 205, 1);
-
-  /* Use 500 colours */
-  --button-enabled-background-color: rgba(76, 175, 80, 0.66);
-  --button-enabled-foreground-color: rgba(255, 255, 255, 0.66);
-  --button-2-enabled-background-color: rgb(33, 150, 243);
-  --button-border-radius: 0.5rem;
-
-  --border-radius: 0.5rem;
-
-  --box-shadow: 0 0 var(--border-radius) var(--border-radius) rgba(0, 0, 0, 0.05);
-
   --font-size: 1rem;
   --normal-font: 'Overpass';
   --mono-font: 'Overpass Mono';
+
+  --page-border-color: rgba(255, 255, 255, 0.33);
+  --page-color: rgba(255, 255, 255, 255.66);
+  --page-background-color: rgba(0, 0, 0, 0.5);
+  --page-border-radius: 0.5rem;
+  --page-blur: 10px;
+  --page-box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
+
+  --text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
 }
 @media only screen and (max-device-width: 480px) {
   :root {
     --font-size: 2rem;
-    --button-border-radius: 1rem;
-    --border-radius: 1rem;
   }
 }
 
@@ -39,13 +24,17 @@
   box-sizing: border-box;
 }
 
-html {
+html,
+body {
   width: 100%;
   height: 100%;
   margin: 0;
   border: 0;
   padding: 0;
-  background: #808080;
+}
+
+html {
+  background: #000000;
   background: url('/images/background.jpg');
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -54,17 +43,173 @@ html {
 }
 
 body {
-  width: 75vw;
   overflow: auto;
-  margin: 0 auto 0 auto;
-  padding: calc(var(--border-radius) * 4) 0;
   font-family: var(--normal-font);
   font-size: var(--font-size);
-  color: var(--text-color);
+}
+
+#wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+#wrapper > #intro {
+  position: fixed;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  background-color: #000000;
+  opacity: 1;
+  z-index: 2;
+  color: #ffffff;
+  transition: all 0.5s;
+}
+
+.intro p {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+#message {
+  opacity: 0;
+  transition: all 1s;
+  font-size: 3rem;
+}
+
+#wrapper > #page {
+  width: 50%;
+  margin: 0;
+  border: 1px solid var(--page-border-color);
+  border-radius: var(--page-border-radius);
+  padding: 0;
+  color: #ffffff;
+  background-color: var(--page-background-color);
+  text-shadow: var(--text-shadow);
+  box-shadow: var(--page-box-shadow);
+  backdrop-filter: blur(var(--page-blur));
+  -webkit-backdrop-filter: blur(var(--page-blur));
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 0.5s;
 }
 @media only screen and (max-device-width: 480px) {
-  body {
-    width: 100vw;
-    padding: var(--border-radius) var(--border-radius);
+  #wrapper > #page {
+    width: 90%;
   }
+}
+
+#photo {
+  display: block;
+  margin: 2vh 0 0 0;
+  border: 0;
+  padding: 0;
+  text-align: center;
+}
+
+#photo img {
+  height: 20vh;
+  width: auto;
+  margin: 0;
+  border: 0;
+  border-radius: 50%;
+  padding: 0;
+  vertical-align: top;
+  filter: drop-shadow(var(--text-shadow));
+}
+
+#name {
+  margin: 2vh 0 0 0;
+  border: 0;
+  padding: 0;
+  text-align: center;
+}
+
+#name p {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 3vw;
+  vertical-align: middle;
+  font-weight: 200;
+}
+
+#social {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+#social > .icons {
+  flex: 1;
+  flex: 1 1 25%;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  text-align: center;
+  filter: drop-shadow(var(--text-shadow));
+}
+@media only screen and (max-device-width: 480px) {
+  #social > .icons {
+    flex: 1 1 50%;
+  }
+}
+
+.icons svg {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  vertical-align: top;
+  scale: 0.8;
+  opacity: 0.75;
+  transition: all 0.3s;
+}
+
+.icons svg:hover {
+  scale: 0.9;
+  opacity: 1;
+  cursor: pointer;
+}
+
+#footer {
+  margin: 2vh 0 0 0;
+  border: 0;
+  padding: 0;
+  font-weight: 100;
+  text-align: center;
+  opacity: 0.66;
+}
+
+#footer p {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 1.5vh;
 }
