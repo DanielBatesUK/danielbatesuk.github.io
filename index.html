@@ -156,13 +156,9 @@
 
       function randomBackground() {
         const totalBackgrounds = 5;
-        const backgroundURL = `url('/images/background_${Math.floor(Math.random() * totalBackgrounds) + 1}.jpg')`;
+        const backgroundStyle = `url('/images/background_${Math.floor(Math.random() * totalBackgrounds) + 1}.jpg') center center / cover no-repeat fixed`;
         // console.log({ backgroundURL });
-        document.body.style.background = backgroundURL;
-        document.body.style.backgroundAttachment = 'fixed';
-        document.body.style.backgroundRepeat = 'no-repeat';
-        document.body.style.backgroundPosition = 'center';
-        document.body.style.backgroundSize = 'cover';
+        document.body.style.background = backgroundStyle;
       }
       randomBackground();
 
