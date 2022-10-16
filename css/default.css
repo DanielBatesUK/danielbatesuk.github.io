@@ -40,7 +40,7 @@ body {
 
 body {
   overflow: auto;
-  font-family: var(--normal-font);
+  font-family: var(--normal-font), sans-serif;
   font-size: var(--font-size);
 }
 
