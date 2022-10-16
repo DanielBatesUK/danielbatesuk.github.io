@@ -135,6 +135,12 @@ body {
   vertical-align: top;
   filter: drop-shadow(var(--text-shadow));
 }
+@media only screen and (max-device-width: 480px) {
+  #photo img {
+    width: 33%;
+    height: auto;
+  }
+}
 
 #name {
   margin: 2vh 0 0 0;
@@ -154,7 +160,7 @@ body {
 }
 @media only screen and (max-device-width: 480px) {
   #name p {
-    font-size: 5vw;
+    font-size: 5vh;
   }
 }
 
@@ -193,6 +199,11 @@ body {
   opacity: 0.75;
   transition: all 0.3s;
   color: var(--page-foreground-color);
+}
+@media only screen and (max-device-width: 480px) {
+  .icons svg {
+    opacity: 1;
+  }
 }
 
 .icons svg:hover {
