@@ -4,11 +4,11 @@
   --mono-font: 'Overpass Mono';
 
   --page-border-color: rgba(255, 255, 255, 0.33);
-  --page-color: rgba(255, 255, 255, 255.66);
-  --page-background-color: rgba(0, 0, 0, 0.5);
+  --page-foreground-color: #ffffff;
+  --page-background-color: rgba(0, 0, 0, 0.75);
   --page-border-radius: 0.5rem;
   --page-blur: 10px;
-  --page-box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
+  --page-box-shadow: 0 0 1rem 1rem rgba(0, 0, 0, 0.1);
 
   --text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
 }
@@ -31,11 +31,7 @@ body {
   margin: 0;
   border: 0;
   padding: 0;
-}
-
-html {
   background: #000000;
-  background: url('/images/background.jpg');
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center;
@@ -97,6 +93,7 @@ body {
   opacity: 0;
   transition: all 1s;
   font-size: 3rem;
+  font-weight: 200;
 }
 
 #wrapper > #page {
@@ -105,7 +102,6 @@ body {
   border: 1px solid var(--page-border-color);
   border-radius: var(--page-border-radius);
   padding: 0;
-  color: #ffffff;
   background-color: var(--page-background-color);
   text-shadow: var(--text-shadow);
   box-shadow: var(--page-box-shadow);
@@ -154,6 +150,12 @@ body {
   font-size: 3vw;
   vertical-align: middle;
   font-weight: 200;
+  color: var(--page-foreground-color);
+}
+@media only screen and (max-device-width: 480px) {
+  #name p {
+    font-size: 5vw;
+  }
 }
 
 #social {
@@ -190,6 +192,7 @@ body {
   scale: 0.8;
   opacity: 0.75;
   transition: all 0.3s;
+  color: var(--page-foreground-color);
 }
 
 .icons svg:hover {
@@ -212,4 +215,5 @@ body {
   border: 0;
   padding: 0;
   font-size: 1.5vh;
+  color: var(--page-foreground-color);
 }
