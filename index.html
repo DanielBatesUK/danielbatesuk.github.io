@@ -114,12 +114,12 @@
     <script>
       const transitionTime = 1000;
       const characterTime = 100;
-      let welcomeMessage = ['Hello,', '...my name is Daniel,', '...and this is my webpage.', 'Thanks for stopping by.'];
+      let introMessage = ['Hello,', '...my name is Daniel,', '...and this is my webpage.', 'Thanks for stopping by.'];
 
       function showIntro() {
-        if (welcomeMessage.length !== 0) {
+        if (introMessage.length !== 0) {
           // show welcome message
-          const messageLine = welcomeMessage.shift();
+          const messageLine = introMessage.shift();
           const holdTime = characterTime * messageLine.length < transitionTime ? transitionTime : characterTime * messageLine.length;
           // console.log({ messageLine, holdTime });
           document.getElementById('message').innerHTML = messageLine;
