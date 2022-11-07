@@ -118,10 +118,9 @@
 
       function showIntro() {
         if (introMessage.length !== 0) {
-          // show welcome message
+          // Show intro (with message line)
           const messageLine = introMessage.shift();
           const holdTime = characterTime * messageLine.length < transitionTime ? transitionTime : characterTime * messageLine.length;
-          // console.log({ messageLine, holdTime });
           document.getElementById('message').innerHTML = messageLine;
           document.getElementById('message').style.opacity = 1;
           setTimeout(() => {
@@ -131,7 +130,7 @@
             showIntro();
           }, holdTime + transitionTime * 2);
         } else {
-          // open page
+          // Show page (after intro)
           setTimeout(() => {
             document.getElementById('intro').style.transition = 'opacity 3s';
             document.getElementById('intro').style.opacity = 0;
@@ -145,11 +144,11 @@
       }
 
       function showPage() {
-        // Hide intro
+        // Hide intro (immediately)
         document.getElementById('intro').style.transition = 'opacity 0s';
         document.getElementById('intro').style.opacity = 0;
         document.getElementById('intro').style.zIndex = 0;
-        // Show page
+        // Show page (quickly)
         document.getElementById('page').style.transition = 'opacity 1s';
         document.getElementById('page').style.opacity = 1;
       }
@@ -157,26 +156,24 @@
       function randomBackground() {
         const totalBackgrounds = 5;
         const backgroundStyle = `url('/images/background_${Math.floor(Math.random() * totalBackgrounds) + 1}.jpg') center center / cover no-repeat fixed`;
-        // console.log({ backgroundURL });
         document.body.style.background = backgroundStyle;
       }
       randomBackground();
 
       function writeCookie() {
         const d = new Date();
-        d.setTime(d.getTime() + 24 * 60 * 60 * 1000); // one day
+        d.setTime(d.getTime() + 24 * 60 * 60 * 1000); // One day (24hrs)
         expires = `expires=${d.toUTCString()}`;
         document.cookie = `visited=true;${expires};path=/`;
       }
 
       window.onload = function () {
-        // console.log({ cookie: document.cookie });
         if (!!document.cookie) {
-          // Show page
+          // Show page (if visited within the last 24hrs)
           writeCookie();
           showPage();
         } else {
-          // Show intro
+          // Show intro (if not visited within the last 24hrs)
           writeCookie();
           showIntro();
         }
