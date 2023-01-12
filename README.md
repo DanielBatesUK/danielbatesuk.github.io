@@ -1,3 +1,3 @@
-# danielbates.co.uk
+# danielbatesuk.github.oi
 
-Public static page for danielbates.co.uk
+My static webpage
