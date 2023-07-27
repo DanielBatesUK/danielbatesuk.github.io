@@ -75,8 +75,8 @@
       function randomBackground() {
         const totalBackgrounds = 5;
         const backgroundStyle = `url('./images/background_${Math.floor(Math.random() * totalBackgrounds) + 1}.jpg') center center / cover no-repeat fixed`;
-        document.body.style.background = backgroundStyle;
-        //document.getElementById('wrapper').style.background = backgroundStyle;
+        //-document.body.style.background = backgroundStyle;
+        document.getElementById('wrapper').style.background = backgroundStyle;
       }
       randomBackground();
 
