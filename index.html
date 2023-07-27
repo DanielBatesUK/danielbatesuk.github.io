@@ -55,8 +55,8 @@
             document.getElementById('intro').style.zIndex = 0;
           }, transitionTime);
           setTimeout(() => {
-            document.getElementById('page-wrapper').style.transition = 'opacity 1s';
-            document.getElementById('page-wrapper').style.opacity = 1;
+            document.getElementById('page').style.transition = 'opacity 1s';
+            document.getElementById('page').style.opacity = 1;
           }, transitionTime * 3);
         }
       }
@@ -67,8 +67,8 @@
         document.getElementById('intro').style.opacity = 0;
         document.getElementById('intro').style.zIndex = 0;
         // Show page (quickly)
-        document.getElementById('page-wrapper').style.transition = 'opacity 1s';
-        document.getElementById('page-wrapper').style.opacity = 1;
+        document.getElementById('page').style.transition = 'opacity 1s';
+        document.getElementById('page').style.opacity = 1;
       }
 
       function randomBackground() {
