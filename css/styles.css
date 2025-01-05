@@ -1,12 +1,15 @@
 :root {
   --font-size: 1rem;
-  --normal-font: 'Nunito';
-  --mono-font: 'Nunito';
+  --normal-font: 'DM Sans';
+  --mono-font: 'DM Sans';
+
+  --name-size: 4vw;
+  --name-weight: 900;
 
   --page-border-color: rgba(255, 255, 255, 0.33);
   --page-foreground-color: #ffffff;
   --page-background-color: rgba(0, 0, 0, 0.75);
-  --page-border-radius: 0.5rem;
+  --page-border-radius: 1vw;
   --page-blur: 10px;
   --page-box-shadow: 0 0 1rem 1rem rgba(0, 0, 0, 0.1);
 
@@ -120,7 +123,7 @@ body {
 
 #page {
   width: 100%;
-  padding: 32px;
+  padding: 2vw;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -175,14 +178,15 @@ body {
 
 #name {
   text-align: center;
-  font-size: 4vw;
-  font-weight: 600;
+  font-size: var(--name-size);
+  font-weight: var(--name-weight);
   color: var(--page-foreground-color);
   opacity: 0.75;
 }
 @media only screen and (max-device-width: 480px) {
   #name {
     font-size: 5vh;
+    opacity: 1;
   }
 }
 
