@@ -53,6 +53,7 @@ body {
   background-color: #000000;
   opacity: 1;
   color: #ffffff;
+  pointer-events: none;
 }
 #cover.hide {
   animation: cover-hide var(--animation-time) ease-in-out forwards;
