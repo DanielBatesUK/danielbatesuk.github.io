@@ -11,6 +11,8 @@
   --page-box-shadow: 0 0 1rem 1rem rgba(0, 0, 0, 0.1);
 
   --text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+
+  --animation-time: 1s;
 }
 
 * {
@@ -33,7 +35,7 @@ body {
   font-size: var(--font-size);
 }
 
-#intro {
+#cover {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -51,7 +53,17 @@ body {
   background-color: #000000;
   opacity: 1;
   color: #ffffff;
-  transition: opacity 0.5s;
+}
+#cover.hide {
+  animation: cover-hide var(--animation-time) ease-in-out forwards;
+}
+@keyframes cover-hide {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 #message {
@@ -123,6 +135,18 @@ body {
   opacity: 0;
   gap: 32px;
 }
+#page.show {
+  animation: page-show calc(var(--animation-time) * 2) ease-in-out forwards calc(var(--animation-time) * 3);
+}
+@keyframes page-show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @media only screen and (max-device-width: 480px) {
   #page {
     align-items: center;

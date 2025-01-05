@@ -158,50 +158,9 @@
         </div>
       </div>
       <div id="footer">Website by Daniel Bates</div>
-      <div id="intro" onclick="showPage();"><p id="message"></p></div>
+      <div id="cover"></div>
     </div>
     <script>
-      const transitionTime = 1000;
-      const characterTime = 100;
-      let introMessage = ['Hello,', '...my name is Daniel,', '...and this is my webpage.', 'Thanks for stopping by.'];
-
-      function showIntro() {
-        if (introMessage.length !== 0) {
-          // Show intro (with message line)
-          const messageLine = introMessage.shift();
-          const holdTime = characterTime * messageLine.length < transitionTime ? transitionTime : characterTime * messageLine.length;
-          document.getElementById('message').innerHTML = messageLine;
-          document.getElementById('message').style.opacity = 1;
-          setTimeout(() => {
-            document.getElementById('message').style.opacity = 0;
-          }, holdTime + transitionTime);
-          setTimeout(() => {
-            showIntro();
-          }, holdTime + transitionTime * 2);
-        } else {
-          // Show page (after intro)
-          setTimeout(() => {
-            document.getElementById('intro').style.transition = 'opacity 3s';
-            document.getElementById('intro').style.opacity = 0;
-            document.getElementById('intro').style.zIndex = 0;
-          }, transitionTime);
-          setTimeout(() => {
-            document.getElementById('page').style.transition = 'opacity 1s';
-            document.getElementById('page').style.opacity = 1;
-          }, transitionTime * 3);
-        }
-      }
-
-      function showPage() {
-        // Hide intro (immediately)
-        document.getElementById('intro').style.transition = 'opacity 0s';
-        document.getElementById('intro').style.opacity = 0;
-        document.getElementById('intro').style.zIndex = 0;
-        // Show page (quickly)
-        document.getElementById('page').style.transition = 'opacity 1s';
-        document.getElementById('page').style.opacity = 1;
-      }
-
       function randomBackground() {
         const totalBackgrounds = 14;
         const backgroundStyle = `url('./images/background_${Math.floor(Math.random() * totalBackgrounds) + 1}.webp') center center / cover no-repeat fixed`;
@@ -210,24 +169,9 @@
       }
       randomBackground();
 
-      function writeCookie() {
-        const d = new Date();
-        d.setTime(d.getTime() + 24 * 60 * 60 * 1000); // One day (24hrs)
-        expires = `expires=${d.toUTCString()}`;
-        document.cookie = `visited=true;${expires};path=/`;
-      }
-
       window.onload = function () {
-        showPage();
-        if (!!document.cookie) {
-          // Show page (if visited within the last 24hrs)
-          writeCookie();
-          showPage();
-        } else {
-          // Show intro (if not visited within the last 24hrs)
-          writeCookie();
-          showIntro();
-        }
+        document.getElementById('cover').classList.add('hide');
+        document.getElementById('page').classList.add('show');
       };
     </script>
   </body>
