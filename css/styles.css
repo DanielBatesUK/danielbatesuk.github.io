@@ -245,7 +245,7 @@ div.links.on a:nth-of-type(8) {
   body {
     justify-content: flex-start;
     padding: var(--block);
-    min-height: 100dvh;
+    /* min-height: 100dvh */
   }
 
   div.container {
