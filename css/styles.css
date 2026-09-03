@@ -47,10 +47,9 @@ body {
   flex-direction: column;
   background: var(--background-color);
   width: 100vw;
-  height: 100lvh;
-  max-height: 100lvh;
+  height: 100dvh;
   overflow-x: hidden;
-  overflow-y: hidden;
+  overflow-y: show;
   align-items: center;
   justify-content: center;
   line-height: var(--line-height);
@@ -72,12 +71,12 @@ img {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100lvh;
-  background-image: url("your-image.jpg");
+  height: 100dvh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  z-index: -99; /* Keeps it behind your content */
+  z-index: -99;
+  pointer-events: none;
 }
 
 div.container {
