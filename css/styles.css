@@ -2,20 +2,26 @@
   --background-color: #000000;
 
   --font-size: 2rem;
-  --font-family: 'Lexend Deca', serif;
+  --font-family: "Lexend Deca", serif;
   --font-weight: 100;
   --font-color: #808080;
 
   --line-height: var(--font-size);
 
-  --name-font-family: 'Lexend Deca', serif;
+  --name-font-family: "Lexend Deca", serif;
   --name-weight: 200;
   --name-color: #ffffff;
 
   --links-color: #ffffff;
   --links-color-hover: #ffffff;
 
-  --cover-background: linear-gradient(rgba(0, 0, 0, 0.33), rgba(0, 0, 0, 0.66), rgba(0, 0, 0, 0.33) 50%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 1) 100%);
+  --cover-background: linear-gradient(
+    rgba(0, 0, 0, 0.33),
+    rgba(0, 0, 0, 0.66),
+    rgba(0, 0, 0, 0.33) 50%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 1) 100%
+  );
 
   --block: var(--font-size);
 
@@ -101,7 +107,7 @@ div.photo img {
   border: calc(var(--block) * 0.25) solid var(--name-color);
   background-color: var(--name-color);
   aspect-ratio: 1;
-  filter: grayscale(0.5);
+  filter: grayscale(0.1);
 }
 
 div.details {
@@ -239,6 +245,7 @@ div.links.on a:nth-of-type(8) {
   body {
     justify-content: flex-start;
     padding: var(--block);
+    min-height: 100dvh;
   }
 
   div.container {
@@ -308,8 +315,8 @@ div.links.on a:nth-of-type(8) {
   #cover {
     max-width: 100svw;
     width: 100svw;
-    max-height: 100svw;
-    height: 100svw;
+    max-height: 100dvw;
+    height: 100dvw;
   }
 }
 
