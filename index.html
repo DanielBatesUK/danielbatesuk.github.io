@@ -10,6 +10,7 @@
     <link rel="icon" type="image/png" href="./images/favicon.ico" />
   </head>
   <body>
+    <div class="background" id="background"></div>
     <div class="container" id="container">
       <div class="information">
         <div class="photo"><img src="images/photo.jpg"></div>
@@ -138,7 +139,7 @@
       function randomBackground() {
         const totalBackgrounds = 14;
         const backgroundImage = `url('./images/background_${Math.floor(Math.random() * totalBackgrounds) + 1}.webp')`;
-        document.body.style.backgroundImage = backgroundImage;
+        document.getElementById('background').style.backgroundImage = backgroundImage;
       }
       randomBackground();
 
