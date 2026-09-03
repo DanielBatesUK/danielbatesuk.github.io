@@ -137,8 +137,8 @@
     <script>
       function randomBackground() {
         const totalBackgrounds = 14;
-        const backgroundStyle = `url('./images/background_${Math.floor(Math.random() * totalBackgrounds) + 1}.webp') center center / cover no-repeat fixed`;
-        document.body.style.background = backgroundStyle;
+        const backgroundImage = `url('./images/background_${Math.floor(Math.random() * totalBackgrounds) + 1}.webp')`;
+        document.body.style.backgroundImage = backgroundImage;
       }
       randomBackground();
 
